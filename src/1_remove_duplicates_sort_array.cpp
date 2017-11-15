@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <iostream>
+#include "test_main.h"
 using namespace std;
 
 class Solution {

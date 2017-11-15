@@ -11,6 +11,7 @@
 
 void remove_duplicates_sort_array();
 
+void remove_duplicates_sort_array2();
 
 
 

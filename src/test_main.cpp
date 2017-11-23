@@ -18,8 +18,9 @@ int main(int argc,char *argv[]){
 
     remove_duplicates_sort_array2();
 
+    longest_consecutive_sequence();
 
-
+    two_sum();
     return 0;
 }
 

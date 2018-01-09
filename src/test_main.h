@@ -26,6 +26,9 @@
 
 void bsTree_test();
 
+void is_valid_number_test();
+
+
 
 
 #endif /* TEST_MAIN_H_ */

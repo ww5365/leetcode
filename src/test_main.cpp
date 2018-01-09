@@ -10,7 +10,7 @@
 
 #include <algorithm>
 #include <vector>
-//reverse swap
+#include <cctype>
 
 using namespace std;
 
@@ -18,21 +18,6 @@ int main(int argc,char *argv[]){
 
     cout << "hello leetcode!" <<endl;
 
-
-    //测试下algorithm中reverse，swap函数的使用
-    vector<int> num;
-    for (int i = 0; i < 10; i++){
-        num.emplace_back(i+1);
-    }
-
-    reverse(&num[0],&num[8]);
-    swap(num[8],num[9]);
-
-    for(auto e:num){
-        cout << e <<" ";
-    }
-
-    cout << endl;
 //////////////////////////////////////////////////
 
 //    remove_duplicates_sort_array();
@@ -47,7 +32,10 @@ int main(int argc,char *argv[]){
 
 //    rotate_test();
 
-    bsTree_test();
+//    bsTree_test();
+
+
+    is_valid_number_test();
 
     return 0;
 

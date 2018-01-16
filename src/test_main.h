@@ -28,6 +28,12 @@ void bsTree_test();
 
 void is_valid_number_test();
 
+void largest_rectange_histogram_test();
+
+void stack_use_queue_imp_test();
+
+void binary_tree_build_test();
+
 
 
 

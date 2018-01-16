@@ -35,7 +35,12 @@ int main(int argc,char *argv[]){
 //    bsTree_test();
 
 
-    is_valid_number_test();
+    //is_valid_number_test();
+
+//    largest_rectange_histogram_test();
+//    stack_use_queue_imp_test();
+
+    binary_tree_build_test();
 
     return 0;
 

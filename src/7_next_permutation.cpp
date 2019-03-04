@@ -45,7 +45,7 @@ private:
         while (nums[index]>=nums[change_index] && change_index > index) --change_index;
         swap(nums[index],nums[change_index]);
         //reverse index+1 to end
-        reverse(&nums[index + 1], &nums[end]);
+         (&nums[index + 1], &nums[end]);
     }
 };
 

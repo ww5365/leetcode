@@ -20,6 +20,9 @@ int main(int argc,char *argv[]){
 
 //////////////////////////////////////////////////
 
+
+    lru_cache_test();
+
 //    remove_duplicates_sort_array();
 //    remove_duplicates_sort_array2();
 //    longest_consecutive_sequence();
@@ -40,7 +43,16 @@ int main(int argc,char *argv[]){
 //    largest_rectange_histogram_test();
 //    stack_use_queue_imp_test();
 
-    binary_tree_build_test();
+//    binary_tree_build_test();
+
+
+//    test_area2_trie();
+
+//    sort_algorithm_test();
+
+//    combination_test();
+
+//      combination_sum_test();
 
     return 0;
 

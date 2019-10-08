@@ -9,6 +9,7 @@
 #define TEST_MAIN_H_
 
 
+
 //void remove_duplicates_sort_array();
 //
 //void remove_duplicates_sort_array2();
@@ -39,9 +40,9 @@ void binary_tree_build_test();
 
 //void sort_algorithm_test();
 
-//void combination_test();
+void combination_test();
 
-void combination_sum_test();
+//void combination_sum_test();
 
 void lru_cache_test();
 

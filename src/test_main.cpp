@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "test_main.h"
+#include "chapater_nine/chapater_nine.h"
 
 #include <algorithm>
 #include <vector>
@@ -18,10 +19,19 @@ int main(int argc,char *argv[]){
 
     cout << "hello leetcode!" <<endl;
 
+
 //////////////////////////////////////////////////
 
+    base_2_binary_search();
+    base_2_rotated_array();
 
-    lru_cache_test();
+    test_basic_3_binary_tree_divide_conquer();
+
+    test_base_4_bfs();
+
+    test_base_5_dfs();
+
+ //   lru_cache_test();
 
 //    remove_duplicates_sort_array();
 //    remove_duplicates_sort_array2();
@@ -50,7 +60,7 @@ int main(int argc,char *argv[]){
 
 //    sort_algorithm_test();
 
-//    combination_test();
+    combination_test();
 
 //      combination_sum_test();
 

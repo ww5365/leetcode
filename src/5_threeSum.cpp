@@ -14,7 +14,10 @@
  *1、时间：o(n),但空间：o(n)
  *2、取出来数据，需要排序，还得去重
  *
- *reference idea：排序，左右夹逼，同时去重； 时间复杂度o(n^2)
+ *reference idea：
+ * 1、排序
+ * 2、左右夹逼，同时去重； 核心：使用两个指针，怎么移动？
+ * 时间复杂度o(n^2)
  * -c = a+b
  *
  *(-2,-1,-1,0,1,2,2,3,3,4,5)
@@ -67,6 +70,52 @@ public:
         return res;
 
     }//end threeSum
+
+    /*
+     * 升级版本
+     */
+    vector<vector<int>> threeSum2(vector<int>& nums) {
+
+            /*
+            *  思路：类似两个a+b = 0 ， -a = b + c 是其一般的情况
+            *  1、排序
+            *  2、当前位置a=nums[i],从i+1和len-1,两头使用两个指针 i,j，寻找满足条件：b + c = -a
+            *     如果大于-a，  j-- ; 如果小于-a， i++;
+            *     相等，yes，that is
+            *     还要考虑：有重复的数字，怎么不要重复选择？
+            *  时间复杂度：o(n^2)
+            *
+            */
+
+            vector<vector<int>> res;
+            if (nums.size() < 3) return res;
+
+            sort(nums.begin(), nums.end(), std::less<int>());
+            for (int i = 0; i < nums.size() - 2; ++i){
+                int a = -nums[i];
+                int left = i + 1, right = nums.size() - 1;
+                while(left < right){
+                    if (nums[left] + nums[right] > a) {
+                        --right;
+                    } else if (nums[left] + nums[right] < a){
+                        ++left;
+                    } else{
+                        //yes 找到了
+                        vector<int> tmp = {nums[i], nums[left], nums[right]};
+                        res.emplace_back(tmp);
+                        ++left;
+                        --right;
+                        //去掉重复
+                        while(left < right && nums[left] == nums[left - 1]) ++left;
+                        while(left < right && nums[right] == nums[right + 1]) --right;
+                    }
+                }
+                //主数字去重
+                while( i < nums.size() - 2 && nums[i] == nums[i + 1]) ++i;
+
+            }
+            return res;
+        }
 };
 
 

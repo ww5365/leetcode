@@ -158,7 +158,7 @@ int Sort::partition(int vec[], int s, int e){
  */
 void Sort::quick_sort(int vec[], int s, int e){
 
-    if (s <= e)
+    if (s >= e)
         return;
     int pos = partition(vec, s, e);
     if (pos != -1){

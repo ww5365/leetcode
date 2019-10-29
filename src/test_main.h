@@ -17,7 +17,7 @@
 //void longest_consecutive_sequence();
 //
 //void longest_consecutive_sequence();
-//void two_sum();
+void two_sum();
 //
 //void three_sum();
 //void three_sum_closest();

@@ -22,21 +22,25 @@ int main(int argc,char *argv[]){
 
 //////////////////////////////////////////////////
 
-    base_2_binary_search();
-    base_2_rotated_array();
+//    base_2_binary_search();
+//    base_2_rotated_array();
+//
+//    test_basic_3_binary_tree_divide_conquer();
+//
+//    test_base_4_bfs();
+//
+//    test_base_5_dfs();
 
-    test_basic_3_binary_tree_divide_conquer();
+    test_base_6_list();
 
-    test_base_4_bfs();
+    test_base_6_array();
 
-    test_base_5_dfs();
-
- //   lru_cache_test();
+    lru_cache_test();
 
 //    remove_duplicates_sort_array();
 //    remove_duplicates_sort_array2();
 //    longest_consecutive_sequence();
-//    two_sum();
+    two_sum();
 //    three_sum();
 //    three_sum_closest();
 

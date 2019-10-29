@@ -6,9 +6,16 @@
  */
 
 #include "test_main.h"
-#include <list>
 #include <map>
+#include <unordered_map>
+#include <list>
 #include <iostream>
+
+/*
+ *算法思路：
+ * 1、map 存储： key -> (key, value，iterator)   也就是把 value 存储在 map中
+ * 2、list 存储：key 来标识哪些 key 还在 cache 中，同时标明它访问的顺序
+ */
 
 template<typename K, typename V>
 class LRU{
@@ -108,6 +115,92 @@ public:
 
 };
 
+/*
+ * v2：版本
+ *
+ * 1、 map： 使用 hashmap 来存储(key, iterator) ; list：使用 list 来存储(key,value)
+ *    为什么都要存key？ list更新(cash块淘汰)时，通过 key 同步更新 hashmap
+ *
+ *
+ */
+
+class LRU2{
+
+private:
+
+    struct LNode{
+        int key;
+        int value;
+        LNode(int k, int v):key(k), value(v){};
+    };
+
+private:
+    int capcity ;
+    int size;
+    std::unordered_map<int, std::list<LNode>::iterator> hash;
+    std::list<LNode> cache;
+
+public:
+
+    LRU2(int cap = 3):capcity(cap), size(0){}
+
+    /*
+     * hash存在key： 直接通过iterator获取到 list 中的 value；同时要更新最近访问的 list 队列；
+    * hash 不存在 key： 返回 -1；
+    */
+
+    int get(int key){
+        auto it = hash.find(key);
+        if (it == hash.end())
+            return -1;
+        std::list<LNode>::iterator list_it = it -> second;
+        cache.splice(cache.begin(), cache, list_it); //更新 cache 将当前访问的点，剪切到链表头部
+
+        return list_it->value;
+    }
+
+    /*
+     * set(key, value)
+     *
+     * 存在 key 的情况： 刷新 value 的值，同时将值节点放到 cache 的头部
+     *
+     * 不存在 key 的情况： 如果 cache 的 capcity 足够，将最新的 cache 节点插入到头部且size+1，同时更新 hash 映射；
+     *                   如果 cache 的 capcity 不够，需要淘汰 cache 的尾部节点，最新节点插入到头部，同时更新 hash 映射中；
+     *
+     */
+    void set(int key, int value){
+        auto it = hash.find(key);
+        if (it != hash.end()){
+            std::list<LNode>::iterator list_it;
+            list_it = it -> second;
+            list_it -> value = value; //更新 value
+            cache.splice(cache.begin(), cache, list_it); //将最新节点插入到头部
+        }else{//不在 cache 中
+            if (size >= capcity){
+                //需要进行淘汰
+                int del_key = cache.back().key;
+                cache.pop_back();
+                hash.erase(del_key);
+            }else{
+                //直接将 capcity+1
+                ++ size;
+            }
+            auto insert_itor = cache.insert(cache.begin(), LNode(key, value));
+            hash.insert(std::make_pair(key, insert_itor));
+        }
+    }
+
+    /*
+     * 打印 cache 块中 key 和 value 内容
+     */
+
+    void print_cache(){
+        for (auto e : cache){
+            std::cout << "key:value " << e.key << " : " << e.value << std::endl;
+        }
+    }
+
+};
 
 void lru_cache_test(){
 
@@ -139,11 +232,22 @@ void lru_cache_test(){
         }
     }
 
-    if (lru.get_key_list(key_head, key_end)){
-        for (;key_head != key_end; key_head ++){
-            std::cout << "key:  " << *(key_head) << std::endl;
-        }
-    }
+    //version 2
+    LRU2 lru2(3);
+    lru2.set(1, 10);
+    lru2.set(2, 20);
+    lru2.set(3, 30);
+    lru2.set(4, 40);
+
+    int value = lru2.get(2);
+    std::cout << "get lru cache: " << value << std::endl;
+    value = lru2.get(1);
+    std::cout << "get lru cache: " << value << std::endl;
+    lru2.print_cache();
+
+    //version 3
+
+
 
 }
 

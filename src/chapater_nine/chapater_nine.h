@@ -15,6 +15,15 @@
 
 using namespace std;
 
+//链表节点定义
+struct LNode{
+    int val;
+    LNode *next; //链表节点，指向下一个节点
+    LNode(int x = 0) : val(x), next(nullptr){}
+};
+
+
+
 void  nine_test();
 
 void base_2_binary_search();
@@ -26,6 +35,10 @@ void test_basic_3_binary_tree_divide_conquer();
 void test_base_4_bfs();
 
 void test_base_5_dfs();
+
+void test_base_6_list();
+
+void test_base_6_array();
 
 
 

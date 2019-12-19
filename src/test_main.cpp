@@ -37,6 +37,10 @@ int main(int argc,char *argv[]){
 
     lru_cache_test();
 
+    test_base_8_heap();
+
+    test_base_9_dp();
+
 //    remove_duplicates_sort_array();
 //    remove_duplicates_sort_array2();
 //    longest_consecutive_sequence();
@@ -67,6 +71,8 @@ int main(int argc,char *argv[]){
     combination_test();
 
 //      combination_sum_test();
+
+    longest_com_substr_seq();
 
     return 0;
 

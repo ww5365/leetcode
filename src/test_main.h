@@ -8,6 +8,9 @@
 #ifndef TEST_MAIN_H_
 #define TEST_MAIN_H_
 
+#include <vector>
+#include <string>
+#include <iostream>
 
 
 //void remove_duplicates_sort_array();
@@ -45,5 +48,7 @@ void combination_test();
 //void combination_sum_test();
 
 void lru_cache_test();
+
+void longest_com_substr_seq();
 
 #endif /* TEST_MAIN_H_ */

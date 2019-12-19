@@ -12,6 +12,8 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <unordered_set>
+#include <queue>
 
 using namespace std;
 
@@ -39,6 +41,10 @@ void test_base_5_dfs();
 void test_base_6_list();
 
 void test_base_6_array();
+
+void test_base_8_heap();
+
+void test_base_9_dp();
 
 
 

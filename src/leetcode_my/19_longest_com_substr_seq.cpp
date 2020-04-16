@@ -34,7 +34,6 @@ using namespace std;
  *
  *   f(i,j)转移方程 : str1[i] = str2[j]  f(i-1, j-1) + 1  斜对角线关系
  *            str1[i] != str2[j]  0   这点不好理解。。
- *
  *            i=0 或 j = 0  相等为1，否则为0
  *
  *   结果： result 记录f[i,j] 计算过程中最大值

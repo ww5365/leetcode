@@ -67,7 +67,7 @@ LNode* rotate_list(LNode *head,  int k){
         cur = cur->next;
     }
 
-    //整体剪切后k个元素，进行rotate
+    //整体剪切pre后的k个元素，进行rotate
 
     dummy.next = pre->next;
     cur->next = head;
@@ -82,7 +82,13 @@ LNode* rotate_list(LNode *head,  int k){
  * 返回一个深拷贝的链表。
  *
  * 算法：
- *
+ * 
+ * 
+ * 问题和参考：https://www.jiuzhang.com/solutions/copy-list-with-random-pointer/#tag-highlight-lang-cpp
+ * 
+ * 思路：
+ * 1. 先把list拷贝出来，形成一个新的list', 同时用map记录新旧节点的映射
+ * 2. 再循环遍历一遍list，将list'的random节点赋
  *
  */
 

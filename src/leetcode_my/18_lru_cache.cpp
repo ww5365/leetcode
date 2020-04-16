@@ -178,9 +178,9 @@ public:
         }else{//不在 cache 中
             if (size >= capcity){
                 //需要进行淘汰
-                int del_key = cache.back().key;
-                cache.pop_back();
-                hash.erase(del_key);
+                int del_key = cache.back().key; //list尾部元素:back(), 头部元素：front(); 头指针：begin() 尾部之后迭代器：end()
+                cache.pop_back(); //list head or tail pop: pop_back() / pop_front();
+                hash.erase(del_key); //map delete key
             }else{
                 //直接将 capcity+1
                 ++ size;

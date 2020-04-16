@@ -6,7 +6,7 @@
  */
 
 #include <iostream>
-#include "test_main.h"
+#include "leetcode_my/test_main.h"
 #include "chapater_nine/chapater_nine.h"
 
 #include <algorithm>
@@ -29,7 +29,7 @@ int main(int argc,char *argv[]){
 //
 //    test_base_4_bfs();
 //
-//    test_base_5_dfs();
+   test_base_5_dfs();
 
     test_base_6_list();
 

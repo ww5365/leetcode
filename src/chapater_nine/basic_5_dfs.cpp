@@ -14,8 +14,16 @@
 using namespace std;
 
 /*
- * 1、给定字符串s，切成子串，返回是回文的子串；
+ * 1、给定字符串s，切成子串，使得每个子串都是回文的子串;返回所有可能的分割方案。
+ * problem:
+ * https://www.jiuzhang.com/solutions/palindrome-partitioning/
+ * https://www.lintcode.com/problem/palindrome-partitioning/description
  *
+ * Decribe:
+ * Given a string s. Partition s such that every substring in the partition is a palindrome.
+ * Return all possible palindrome partitioning of s.
+ *
+ * 
  * 一个问题包含了两种算法考察：？
  * a. 如何得到字符串的所有的子串：  组合问题
  * b. 如何判断一个字符串是回文：    动态规划
@@ -27,7 +35,7 @@ class Solution{
 public:
     void all_substring(string &s){
         vector<string> path;
-        vector<vector<string>> res;
+        vector<vector<string> > res;
         palindromeTable(s);
         dfs(s, 0, path, res);
 
@@ -47,9 +55,9 @@ private:
     bool **arr;
     int arr_len;
 
-private:
+public:
 
-    void print_res(vector<vector<string>> &res){
+    void print_res(vector<vector<string> > &res){
         //打印结果
         if (res.empty()){
             cout << "there is no sub string result!" << endl;
@@ -63,8 +71,10 @@ private:
         }
     }
 
-    //version1: 深度优先算法，切分字符串s，得到所有子串;参考
-    void dfs(const string &s, vector<string> &path, vector<vector<string>> &res){
+    //version1: 深度优先算法，切分字符串s，得到所有切割方案;参考版本
+    //切割的方案：2^n 组合问题
+
+    void dfs(const string &s, vector<string> &path, vector<vector<string> > &res){
 
         size_t len = s.size();
         if (len == 0) {
@@ -80,7 +90,7 @@ private:
     }
 
     //version2： 字符串s的切割成子串开始位置：start  自己实现的一个版本
-    void dfs(string &s, int start, vector<string> &path, vector<vector<string>> &res){
+    void dfs(string &s, int start, vector<string> &path, vector<vector<string> > &res){
         int len = s.size();
         if (start >= len){
             res.push_back(path);
@@ -169,13 +179,14 @@ private:
  */
 
 
-
-
-
 void test_base_5_dfs(){
     Solution test;
-    string s = "abba";
-    test.all_substring(s);
+    string s = "abc";
+    //test.all_substring(s);
+    vector<string> path;
+    vector<vector<std::string> > res;
+    test.dfs(s, path, res);
+    test.print_res(res);
 
 }
 

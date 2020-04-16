@@ -44,7 +44,7 @@ int findMinElement(vector<int> &vec){
     * 2、旋转数组：二分法的变形；怎么个变化？没有target了，怎么确定target
     */
 
-   int target = vec[end];
+   int target = vec[end]; //这个target是固定的，没有问题。
    while (start + 1 < end){
        int mid = start + (end - start)/2;
 

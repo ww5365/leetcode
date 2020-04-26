@@ -6,8 +6,8 @@
  */
 
 #include <iostream>
-#include "leetcode_my/test_main.h"
-#include "chapater_nine/chapater_nine.h"
+#include "test_main.h"
+#include "../chapater_nine/chapater_nine.h"
 
 #include <algorithm>
 #include <vector>

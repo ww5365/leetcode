@@ -12,8 +12,6 @@
   * @date 2018/01/22 19:23:25
   * @brief
   *
-  * 国际化新本行政区划数据，建tire树，sug-as自己召回；
-  *
   **/
 #ifndef  __AREA2_TRIE_H_
 #define  __AREA2_TRIE_H_
@@ -39,7 +37,6 @@ struct DistrictInfo
 
 };
 
-
 class DistrictTrie
 {
 public:
@@ -54,11 +51,9 @@ public:
 public:
     DistrictTrie();
     ~DistrictTrie();
-
     int Init();
     int Insert(const char *str, DistrictInfo* &district_info);
 
-    //查询
     bool Search(const char *str, std::vector<DistrictInfo*> &res);
     std::vector<DistrictInfo*>* SearchAll(const char *str);
 
